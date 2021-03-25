@@ -1,9 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet, View } from "react-native";
-import { Text } from "react-native-paper";
-import {_loadResourcesAsync} from './utils/loadFonts';
-import fonts from "./src/config/fonts";
+import { Platform, SafeAreaView, View } from "react-native";
+import { _loadResourcesAsync } from "./utils/loadFonts";
 
 const App = () => {
   const [isFontLoaded, setFontLoaded] = useState(false);
@@ -19,7 +17,7 @@ const App = () => {
   }
   return (
     <SafeAreaView>
-      <Text style={fonts.largetitle}>Test</Text>
+      {Platform.OS === "ios" && <StatusBar style="dark" />}
     </SafeAreaView>
   );
 };
