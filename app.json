@@ -1,0 +1,12 @@
+{
+  "name": "Chaos-Mobile",
+  "displayName": "Chaos-Mobile",
+  "expo": {
+    "name": "Chaos-Mobile",
+    "slug": "Chaos-Mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
