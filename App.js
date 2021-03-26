@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { Platform, SafeAreaView, View } from "react-native";
+import TextInput from "./src/components/TextInput";
 import SplashScreen from "./src/views/SplashScreen";
 import { _loadResourcesAsync } from "./utils/loadFonts";
 
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {Platform.OS === "ios" && <StatusBar style="dark" />}
-      <SplashScreen />
+      <TextInput placeholder="test" />
     </SafeAreaView>
   );
 };
