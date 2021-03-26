@@ -1,8 +1,11 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { Platform, SafeAreaView, View } from "react-native";
 import SplashScreen from "./src/views/SplashScreen";
 import { _loadResourcesAsync } from "./utils/loadFonts";
+import AuthStack from "./navigation/AuthStack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   const [isFontLoaded, setFontLoaded] = useState(false);
@@ -19,7 +22,9 @@ const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {Platform.OS === "ios" && <StatusBar style="dark" />}
-      <SplashScreen />
+      <NavigationContainer>
+        <AuthStack />
+      </NavigationContainer>
     </SafeAreaView>
   );
 };
