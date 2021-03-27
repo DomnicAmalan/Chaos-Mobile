@@ -14,7 +14,11 @@ export default () => (
       />
     </View>
     <Text style={[fonts.title2, splashScreenStyles.text]}>
-      Welcome To The World of Sports
+      Welcome To  
+      
+    </Text>
+    <Text style={[fonts.styledTitleItalicLined, splashScreenStyles.title]}>
+      CHAOS
     </Text>
   </View>
 );

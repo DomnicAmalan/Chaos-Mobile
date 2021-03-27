@@ -8,6 +8,7 @@ export const _loadResourcesAsync = async () => {
       "Arimo-Regular": require("../assets/fonts/Arimo-Regular.ttf"),
       "Arimo-SemiBold": require("../assets/fonts/Arimo-SemiBold.ttf"),
       "SF-Title": require("../assets/fonts/SFSportsNightNSUpright.ttf"),
+      "SF-Title-Lined": require('../assets/fonts/SFSportsNight.ttf')
     }),
   ]);
 };
