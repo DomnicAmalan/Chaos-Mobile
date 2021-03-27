@@ -1,6 +1,6 @@
 import React from "react";
 import { TextInput } from "react-native-paper";
-import colors from "../../config/colors.json";
+import colors from "config/colors.json";
 
 export default ({label, placeholder, style, password}) => (
   <TextInput
