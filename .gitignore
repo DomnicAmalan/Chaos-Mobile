@@ -63,3 +63,5 @@ buck-out/
 # Expo
 .expo/*
 web-build/
+ios/Podfile.lock
+yarn.lock

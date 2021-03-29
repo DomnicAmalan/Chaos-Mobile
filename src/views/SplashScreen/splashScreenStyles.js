@@ -7,6 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "white",
   },
   lottieContainer: {
     width: scale(300),
@@ -14,8 +15,8 @@ export default StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    width:scale(250),
-    lineHeight:scale(35)
+    width: scale(250),
+    lineHeight: scale(35),
   },
   title: {
     color: colors.yellow,
