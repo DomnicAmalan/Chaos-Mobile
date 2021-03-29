@@ -56,7 +56,7 @@ export const GetASingleSport = async(id) => {
   }
 }
 
-export const IntelligentSearch = (query, coordinates, source, has_icon, parents_only, strict, has_decathalon_id) => {
+export const IntelligentSearch = async(query, coordinates, source, has_icon, parents_only, strict, has_decathalon_id) => {
   try {
     const resp = await SportsApiInstance.get(`/search/${query}`, {
       params: {
@@ -76,7 +76,7 @@ export const IntelligentSearch = (query, coordinates, source, has_icon, parents_
   }
 }
 
-export const LocationBasedRecommendation = (coordinates, source, has_icon, parents_only) => {
+export const LocationBasedRecommendation = async(coordinates, source, has_icon, parents_only) => {
   try {
     const resp = await SportsApiInstance.get(`/recommendations/geolocation`, {
       params: {
@@ -93,7 +93,7 @@ export const LocationBasedRecommendation = (coordinates, source, has_icon, paren
   }
 }
 
-export const SportsGroup = () => {
+export const SportsGroup = async() => {
   try {
     const resp = await SportsApiInstance.get(`/groups`)
     return resp
@@ -104,7 +104,7 @@ export const SportsGroup = () => {
 }
 
 // Deprecation soon
-export const GetASportGroup = (slug) => {
+export const GetASportGroup = async(slug) => {
   try {
     const resp = await SportsApiInstance.get(`/groups/${slug}`)
     return resp
