@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "assets": ["./assets"],
+      "components": ["./src/components"],
+      "locales": ["./locales"],
+      "views": ["./src/views"],
+      "utils": ["./utils"],
+      "config": ["./src/config"],
+      "hooks": ["./src/hooks"],
+      "api": ["./src/apis"],
+    }
+  },
+  "exclude": ["dist", "docs"]
+}

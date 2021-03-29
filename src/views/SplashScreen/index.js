@@ -2,7 +2,8 @@ import React from "react";
 import { View, Text } from "react-native";
 import LottieView from "lottie-react-native";
 import splashScreenStyles from "./splashScreenStyles";
-import fonts from "../../config/fonts";
+import fonts from "config/fonts";
+import { strings } from 'utils/i18n';
 
 export default () => (
   <View style={splashScreenStyles.screen}>
@@ -14,7 +15,7 @@ export default () => (
       />
     </View>
     <Text style={[fonts.title2, splashScreenStyles.text]}>
-      Welcome To The World of Sports
+      {strings('SplashScreen.title')}
     </Text>
   </View>
 );
