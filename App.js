@@ -1,10 +1,12 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { Platform, SafeAreaView, View } from "react-native";
-import TextInput from "components/TextInput";
-import SplashScreen from "views/SplashScreen";
-import { _loadResourcesAsync } from "utils/loadFonts"; 
-import {GetSportsList} from './src/apis/external/Decathalon'
+import SplashScreen from "./src/views/SplashScreen";
+import { _loadResourcesAsync } from "./utils/loadFonts";
+import linking from './utils/linking'
+import AuthStack from "./navigation/AuthStack";
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   const [isFontLoaded, setFontLoaded] = useState(false);
@@ -13,7 +15,6 @@ const App = () => {
     _loadResourcesAsync().then(() => {
       setFontLoaded(true);
     });
-    GetSportsList()
   }, []);
   
 
@@ -23,8 +24,9 @@ const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {Platform.OS === "ios" && <StatusBar style="dark" />}
-      {/* <TextInput placeholder="test" /> */}
-      <SplashScreen />
+      <NavigationContainer linking={linking}>
+        <AuthStack />
+      </NavigationContainer>
     </SafeAreaView>
   );
 };
