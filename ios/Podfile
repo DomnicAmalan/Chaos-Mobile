@@ -21,7 +21,5 @@ target 'ChaosMobile' do
   #  post_install do |installer|
   #    flipper_post_install(installer)
   #  end
-  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
-
 
 end
