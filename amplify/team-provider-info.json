@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-chaosmobile-dev-200432-authRole",
+      "UnauthRoleArn": "arn:aws:iam::210494068639:role/amplify-chaosmobile-dev-200432-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::210494068639:role/amplify-chaosmobile-dev-200432-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-chaosmobile-dev-200432-deployment",
+      "UnauthRoleName": "amplify-chaosmobile-dev-200432-unauthRole",
+      "StackName": "amplify-chaosmobile-dev-200432",
+      "StackId": "arn:aws:cloudformation:us-east-1:210494068639:stack/amplify-chaosmobile-dev-200432/b9440940-8fd2-11eb-b797-0e00cd5253c1",
+      "AmplifyAppId": "d7ai6aw0j55y3"
+    },
+    "categories": {
+      "auth": {
+        "cognito81ff1e26": {}
+      },
+      "notifications": {
+        "Pinpoint": {
+          "Name": "chaos-dev",
+          "Id": "ec4aae0f89b34f56b9ffdc5cb32f2a75",
+          "Region": "us-east-1"
+        }
+      }
+    }
+  }
+}

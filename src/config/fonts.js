@@ -45,4 +45,10 @@ export default StyleSheet.create({
     fontFamily: "Arimo-Medium",
     fontSize: 11,
   },
+  styledTitleNormal: {
+    fontFamily: "SF-Title",
+  },
+  styledTitleItalicLined: {
+    fontFamily: "SF-Title-Lined",
+  }
 });
