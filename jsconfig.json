@@ -10,9 +10,7 @@
       "views": ["./src/views"],
       "utils": ["./utils"],
       "config": ["./src/config"],
-      "hooks": ["./src/hooks"],
-      "api": ["./src/apis"],
     }
   },
-  "exclude": ["dist", "docs"]
+  "exclude": ["node_modules", "dist", "docs"]
 }

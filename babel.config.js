@@ -13,9 +13,7 @@ module.exports = function(api) {
             locales: './locales',
             views: './src/views',
             utils: './utils',
-            config: './src/config',
-            hooks: './src/hooks',
-            api: './src/apis'
+            config: './src/config'
           }
         }
       ]

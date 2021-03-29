@@ -4,7 +4,6 @@ import { Platform, SafeAreaView, View } from "react-native";
 import TextInput from "components/TextInput";
 import SplashScreen from "views/SplashScreen";
 import { _loadResourcesAsync } from "utils/loadFonts"; 
-import {GetSportsList} from './src/apis/external/Decathalon'
 
 const App = () => {
   const [isFontLoaded, setFontLoaded] = useState(false);
@@ -13,9 +12,7 @@ const App = () => {
     _loadResourcesAsync().then(() => {
       setFontLoaded(true);
     });
-    GetSportsList()
   }, []);
-  
 
   if (!isFontLoaded) {
     return <View></View>;
