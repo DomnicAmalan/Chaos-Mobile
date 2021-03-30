@@ -3,7 +3,7 @@ import colors from "./colors.json";
 
 export const theme = {
   ...DefaultTheme,
-  roundness: 10,
+  roundness: 5,
   colors: {
     primary: colors.primary,
     white: colors.white,

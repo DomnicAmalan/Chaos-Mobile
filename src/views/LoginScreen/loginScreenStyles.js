@@ -9,20 +9,24 @@ export default StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "white",
   },
-  lottieContainer: {
+  formcontainer: {
+    display: "flex",
+    flexDirection: "column",
+    flex:1,
     width: scale(300),
     height: scale(300),
+    elevation: 0.5,
+    justifyContent: "flex-end"
   },
-  text: {
-    textAlign: "center",
-    width: scale(250),
-    lineHeight: scale(35),
-    fontSize: 20,
-    color: colors.thickgrey
+  input: {
+    display:"flex",
+    backgroundColor: colors.white,
+    display: "flex",
+    fontSize: scale(10),
+    height: scale(40)
   },
-  title: {
-    color: colors.yellow,
-    fontSize: 30,
-    letterSpacing: 10
+  footer: {
+    display: "flex",
+    height: scale(300)
   }
 });

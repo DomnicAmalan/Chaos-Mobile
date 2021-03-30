@@ -1,5 +1,12 @@
 {
+  "appName": "Chaos",
   "Splashscreen": {
-    "title": "Welcome to world of sports"
+    "title": "உலகத்திற்கு வரவேற்கிறோம் "
+  },
+  "LoginScreen": {
+    "placeholders": {
+      "name": "Name",
+      "password": "Password"
+    }
   }
 }
