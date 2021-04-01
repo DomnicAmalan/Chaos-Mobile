@@ -1,64 +1,56 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-chaosmobile-dev-200432-authRole",
-      "UnauthRoleArn": "arn:aws:iam::210494068639:role/amplify-chaosmobile-dev-200432-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::210494068639:role/amplify-chaosmobile-dev-200432-authRole",
+      "AuthRoleName": "amplify-chaos-dev-153938-authRole",
+      "UnauthRoleArn": "arn:aws:iam::210494068639:role/amplify-chaos-dev-153938-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::210494068639:role/amplify-chaos-dev-153938-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-chaosmobile-dev-200432-deployment",
-      "UnauthRoleName": "amplify-chaosmobile-dev-200432-unauthRole",
-      "StackName": "amplify-chaosmobile-dev-200432",
-      "StackId": "arn:aws:cloudformation:us-east-1:210494068639:stack/amplify-chaosmobile-dev-200432/b9440940-8fd2-11eb-b797-0e00cd5253c1",
-      "AmplifyAppId": "d7ai6aw0j55y3"
+      "DeploymentBucketName": "amplify-chaos-dev-153938-deployment",
+      "UnauthRoleName": "amplify-chaos-dev-153938-unauthRole",
+      "StackName": "amplify-chaos-dev-153938",
+      "StackId": "arn:aws:cloudformation:us-east-1:210494068639:stack/amplify-chaos-dev-153938/60bc4230-92d2-11eb-9c7d-0a035b49661f",
+      "AmplifyAppId": "d34qe0mpewt80d"
     }
   },
   "auth": {
-    "cognito81ff1e26": {
+    "cognitobf926ab8": {
       "service": "Cognito",
       "serviceType": "managed",
       "providerPlugin": "awscloudformation",
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chaosmobile-dev-200432-deployment/amplify-cfn-templates/auth/cognito81ff1e26-cloudformation-template.yml",
-        "logicalId": "authcognito81ff1e26"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/auth/cognitobf926ab8-cloudformation-template.yml",
+        "logicalId": "authcognitobf926ab8"
       },
-      "lastPushTimeStamp": "2021-03-29T03:27:50.874Z",
+      "lastPushTimeStamp": "2021-04-01T10:12:56.460Z",
       "output": {
-        "IdentityPoolId": "us-east-1:692ef2d2-b796-4386-b976-6a4120def2a5",
-        "IdentityPoolName": "chaosmobile_identitypool_f39f6e21__dev",
-        "UserPoolId": "us-east-1_DPYh1WiDO",
-        "AppClientIDWeb": "4v4hbsrvlftvhmdhjmspjvkuc3",
-        "AppClientID": "2pb4m7bi9bg1jcntkehl768p8u",
-        "HostedUIDomain": "chaos-dev",
-        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/signout/\"]}",
-        "UserPoolName": "cognito81ff1e26_userpool_51a82b98"
+        "IdentityPoolId": "us-east-1:0d166bdd-7f3a-4a32-94ad-b1e2744f8ce8",
+        "IdentityPoolName": "chaos_identitypool_f23f5420__dev"
       },
-      "lastPushDirHash": "bAyumT3TrZc0mHZm2ue8CQemLic=",
-      "dependsOn": [],
-      "customAuth": false
+      "lastPushDirHash": "dDi9GofBlL883/+R1CNBFnXqGo0="
     }
   },
   "notifications": {
-    "chaos": {
+    "choaspin": {
       "service": "Pinpoint",
       "output": {
-        "Arn": "arn:aws:mobiletargeting:us-east-1:210494068639:apps/ec4aae0f89b34f56b9ffdc5cb32f2a75",
-        "Id": "ec4aae0f89b34f56b9ffdc5cb32f2a75",
-        "Name": "chaos-dev",
+        "Arn": "arn:aws:mobiletargeting:us-east-1:210494068639:apps/1d3e85cf0862407db14ee27c223a2204",
+        "Id": "1d3e85cf0862407db14ee27c223a2204",
+        "Name": "choaspin-dev",
         "tags": {},
         "Region": "us-east-1",
         "FCM": {
-          "ApplicationId": "ec4aae0f89b34f56b9ffdc5cb32f2a75",
-          "CreationDate": "2021-03-28T14:45:02.413Z",
+          "ApplicationId": "1d3e85cf0862407db14ee27c223a2204",
+          "CreationDate": "2021-04-01T10:11:08.618Z",
           "Enabled": true,
           "HasCredential": true,
           "Id": "gcm",
           "IsArchived": false,
-          "LastModifiedDate": "2021-03-29T02:48:56.515Z",
+          "LastModifiedDate": "2021-04-01T10:11:08.618Z",
           "Platform": "GCM",
-          "Version": 2
+          "Version": 1
         }
       },
-      "lastPushTimeStamp": "2021-03-28T14:44:35.339Z"
+      "lastPushTimeStamp": "2021-04-01T10:11:00.082Z"
     }
   }
 }

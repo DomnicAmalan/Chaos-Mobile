@@ -1,18 +1,17 @@
 {
-  "auth": {
-    "cognito81ff1e26": {
-      "service": "Cognito",
-      "serviceType": "managed",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": []
+    "auth": {
+        "cognitobf926ab8": {
+            "service": "Cognito",
+            "serviceType": "managed",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "notifications": {
+        "choaspin": {
+            "service": "Pinpoint",
+            "channels": [
+                "FCM"
+            ]
+        }
     }
-  },
-  "notifications": {
-    "chaos": {
-      "service": "Pinpoint",
-      "channels": [
-        "FCM"
-      ]
-    }
-  }
 }

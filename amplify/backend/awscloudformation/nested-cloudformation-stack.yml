@@ -68,34 +68,15 @@
         }
       }
     },
-    "authcognito81ff1e26": {
+    "authcognitobf926ab8": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-chaosmobile-dev-200432-deployment/amplify-cfn-templates/auth/cognito81ff1e26-cloudformation-template.yml",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/auth/cognitobf926ab8-cloudformation-template.yml",
         "Parameters": {
-          "identityPoolName": "chaosmobile_identitypool_f39f6e21",
-          "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "cognit51a82b98",
-          "userPoolName": "cognito81ff1e26_userpool_51a82b98",
-          "autoVerifiedAttributes": "email",
-          "mfaConfiguration": "OFF",
-          "mfaTypes": "SMS Text Message",
-          "smsAuthenticationMessage": "Your authentication code is {####}",
-          "smsVerificationMessage": "Your verification code is {####}",
-          "emailVerificationSubject": "Your verification code",
-          "emailVerificationMessage": "Your verification code is {####}",
-          "defaultPasswordPolicy": false,
-          "passwordPolicyMinLength": 8,
-          "passwordPolicyCharacters": "",
-          "requiredAttributes": "email",
-          "userpoolClientGenerateSecret": false,
-          "userpoolClientRefreshTokenValidity": 30,
-          "userpoolClientWriteAttributes": "email",
-          "userpoolClientReadAttributes": "email",
-          "userpoolClientLambdaRole": "cognit51a82b98_userpoolclient_lambda_role",
-          "userpoolClientSetAttributes": false,
-          "authSelections": "identityPoolAndUserPool",
-          "resourceName": "cognito81ff1e26",
+          "identityPoolName": "chaos_identitypool_f23f5420",
+          "allowUnauthenticatedIdentities": true,
+          "authSelections": "identityPoolOnly",
+          "resourceName": "cognitobf926ab8",
           "authRoleArn": {
             "Fn::GetAtt": [
               "AuthRole",
@@ -108,17 +89,6 @@
               "Arn"
             ]
           },
-          "hostedUI": true,
-          "useDefault": "defaultSocial",
-          "hostedUIDomainName": "chaos",
-          "authProvidersUserPool": "",
-          "hostedUIProviderMeta": "[]",
-          "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/signout/\"]}",
-          "userPoolGroupList": "",
-          "serviceName": "Cognito",
-          "dependsOn": "",
-          "authProviders": "",
-          "hostedUIProviderCreds": "[]",
           "env": "dev"
         }
       }
@@ -127,7 +97,7 @@
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authcognito81ff1e26"
+        "authcognitobf926ab8"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -210,7 +180,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authcognito81ff1e26",
+            "authcognitobf926ab8",
             "Outputs.IdentityPoolId"
           ]
         },

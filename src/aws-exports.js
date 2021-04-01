@@ -21,7 +21,7 @@ const awsmobile = {
         "responseType": "code"
     },
     "federationTarget": "COGNITO_USER_POOLS",
-    "aws_mobile_analytics_app_id": "ec4aae0f89b34f56b9ffdc5cb32f2a75",
+    "aws_mobile_analytics_app_id": "642cfb0be73d4b09a2e29462e604efbb",
     "aws_mobile_analytics_app_region": "us-east-1"
 };
 
