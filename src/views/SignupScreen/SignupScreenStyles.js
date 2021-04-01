@@ -30,9 +30,8 @@ export default StyleSheet.create({
   formContainer: {
     display: "flex",
     flexDirection: "column",
-    flex:8,
-    top: scale(100),
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: scale(100)
   },
   footer: {
     display: "flex",

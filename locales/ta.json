@@ -1,5 +1,19 @@
 {
   "Splashscreen": {
-    "title": "Welcome to world of sports"
+    "title": "Welcome to"
+  },
+  "LoginScreen": {
+    "signin": "உள்நுழை",
+    "register": "பதிவு",
+    "placeholders": {
+      "username": "பயனர்பெயர்",
+      "password": "கடவுச்சொல்",
+      "email": "மின்னஞ்சல்"
+    },
+    "alternatesign": "அல்லது",
+    "dont": "தரவு இல்லையா?",
+    "registernow": "இப்போது பதிவுசெய்க",
+    "alreadysignedin": "ஏற்கனவே பதிவுசெய்துள்ளீர்களா?",
+    "singnow": "இப்போது உள்நுழைக"
   }
 }

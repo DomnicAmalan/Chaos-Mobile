@@ -1,6 +1,7 @@
 const config = {
   screens: {
-    Notifications: "notifications",
+    Notifications: "/notifications",
+    MainScreen1: "MainScreen1"
   },
 };
 
