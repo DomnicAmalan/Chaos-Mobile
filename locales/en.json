@@ -1,5 +1,19 @@
 {
   "SplashScreen": {
     "title": "Welcome to world of sports"
+  },
+  "LoginScreen": {
+    "signin": "Sign In",
+    "register": "Register",
+    "placeholders": {
+      "username": "Username",
+      "password": "Password",
+      "email": "E-Mail"
+    },
+    "alternatesign": "or sign in with",
+    "dont": "Don't have account?",
+    "registernow": "Register Now",
+    "alreadysignedin": "Already signed up?",
+    "singnow": "Sign In Now"
   }
 }
