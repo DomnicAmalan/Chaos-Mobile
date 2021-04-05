@@ -1,7 +1,48 @@
 {
     "identityPoolName": "chaos_identitypool_f23f5420",
-    "allowUnauthenticatedIdentities": true,
-    "authSelections": "identityPoolOnly",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "cognitbe1a2837",
+    "userPoolName": "ChaosFB",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Kindly verify your email for chaos",
+    "emailVerificationMessage": "Thank you for signing up please verify your email {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+        "email",
+        "gender",
+        "name",
+        "nickname",
+        "updated_at"
+    ],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": "1",
+    "userpoolClientWriteAttributes": [
+        "email",
+        "gender",
+        "name",
+        "nickname",
+        "updated_at"
+    ],
+    "userpoolClientReadAttributes": [
+        "email",
+        "gender",
+        "name",
+        "nickname",
+        "updated_at"
+    ],
+    "userpoolClientLambdaRole": "cognitbe1a2837_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": true,
+    "authSelections": "identityPoolAndUserPool",
     "resourceName": "cognitobf926ab8",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -14,5 +55,24 @@
             "UnauthRole",
             "Arn"
         ]
-    }
+    },
+    "useDefault": "manual",
+    "thirdPartyAuth": true,
+    "authProviders": [
+        "graph.facebook.com"
+    ],
+    "userPoolGroups": true,
+    "adminQueries": true,
+    "triggers": "{}",
+    "hostedUI": false,
+    "userPoolGroupList": [
+        "users"
+    ],
+    "adminQueryGroup": "test",
+    "serviceName": "Cognito",
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
+    "dependsOn": []
 }

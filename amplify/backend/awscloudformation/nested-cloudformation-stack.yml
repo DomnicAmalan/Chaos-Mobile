@@ -74,8 +74,27 @@
         "TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/auth/cognitobf926ab8-cloudformation-template.yml",
         "Parameters": {
           "identityPoolName": "chaos_identitypool_f23f5420",
-          "allowUnauthenticatedIdentities": true,
-          "authSelections": "identityPoolOnly",
+          "allowUnauthenticatedIdentities": false,
+          "resourceNameTruncated": "cognitbe1a2837",
+          "userPoolName": "ChaosFB",
+          "autoVerifiedAttributes": "email",
+          "mfaConfiguration": "OFF",
+          "mfaTypes": "SMS Text Message",
+          "smsAuthenticationMessage": "Your authentication code is {####}",
+          "smsVerificationMessage": "Your verification code is {####}",
+          "emailVerificationSubject": "Kindly verify your email for chaos",
+          "emailVerificationMessage": "Thank you for signing up please verify your email {####}",
+          "defaultPasswordPolicy": false,
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": "",
+          "requiredAttributes": "email,gender,name,nickname,updated_at",
+          "userpoolClientGenerateSecret": false,
+          "userpoolClientRefreshTokenValidity": "1",
+          "userpoolClientWriteAttributes": "email,gender,name,nickname,updated_at",
+          "userpoolClientReadAttributes": "email,gender,name,nickname,updated_at",
+          "userpoolClientLambdaRole": "cognitbe1a2837_userpoolclient_lambda_role",
+          "userpoolClientSetAttributes": true,
+          "authSelections": "identityPoolAndUserPool",
           "resourceName": "cognitobf926ab8",
           "authRoleArn": {
             "Fn::GetAtt": [
@@ -87,6 +106,117 @@
             "Fn::GetAtt": [
               "UnauthRole",
               "Arn"
+            ]
+          },
+          "useDefault": "manual",
+          "thirdPartyAuth": true,
+          "authProviders": "graph.facebook.com",
+          "userPoolGroups": true,
+          "adminQueries": true,
+          "triggers": "{}",
+          "hostedUI": false,
+          "userPoolGroupList": "users",
+          "adminQueryGroup": "test",
+          "serviceName": "Cognito",
+          "parentStack": {
+            "Ref": "AWS::StackId"
+          },
+          "permissions": "",
+          "dependsOn": "",
+          "facebookAppId": "910887943064469",
+          "env": "dev"
+        }
+      }
+    },
+    "authuserPoolGroups": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/auth/template.json",
+        "Parameters": {
+          "AuthRoleArn": {
+            "Fn::GetAtt": [
+              "AuthRole",
+              "Arn"
+            ]
+          },
+          "UnauthRoleArn": {
+            "Fn::GetAtt": [
+              "UnauthRole",
+              "Arn"
+            ]
+          },
+          "authcognitobf926ab8UserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitobf926ab8",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "authcognitobf926ab8AppClientIDWeb": {
+            "Fn::GetAtt": [
+              "authcognitobf926ab8",
+              "Outputs.AppClientIDWeb"
+            ]
+          },
+          "authcognitobf926ab8AppClientID": {
+            "Fn::GetAtt": [
+              "authcognitobf926ab8",
+              "Outputs.AppClientID"
+            ]
+          },
+          "authcognitobf926ab8IdentityPoolId": {
+            "Fn::GetAtt": [
+              "authcognitobf926ab8",
+              "Outputs.IdentityPoolId"
+            ]
+          },
+          "env": "dev"
+        }
+      }
+    },
+    "functionAdminQueries253f54c3": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/function/AdminQueries253f54c3-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-chaos-dev-153938-deployment",
+          "s3Key": "amplify-builds/AdminQueries253f54c3-5a512f52564f3557596d-build.zip",
+          "authcognitobf926ab8UserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitobf926ab8",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "env": "dev"
+        }
+      }
+    },
+    "apiAdminQueries": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/api/admin-queries-cloudformation-template.json",
+        "Parameters": {
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "authcognitobf926ab8UserPoolId": {
+            "Fn::GetAtt": [
+              "authcognitobf926ab8",
+              "Outputs.UserPoolId"
+            ]
+          },
+          "functionAdminQueries253f54c3Arn": {
+            "Fn::GetAtt": [
+              "functionAdminQueries253f54c3",
+              "Outputs.Arn"
+            ]
+          },
+          "functionAdminQueries253f54c3Name": {
+            "Fn::GetAtt": [
+              "functionAdminQueries253f54c3",
+              "Outputs.Name"
             ]
           },
           "env": "dev"

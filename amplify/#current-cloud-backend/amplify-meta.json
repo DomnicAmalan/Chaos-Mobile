@@ -21,12 +21,44 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/auth/cognitobf926ab8-cloudformation-template.yml",
         "logicalId": "authcognitobf926ab8"
       },
-      "lastPushTimeStamp": "2021-04-01T10:12:56.460Z",
+      "lastPushTimeStamp": "2021-04-01T11:24:14.395Z",
       "output": {
         "IdentityPoolId": "us-east-1:0d166bdd-7f3a-4a32-94ad-b1e2744f8ce8",
-        "IdentityPoolName": "chaos_identitypool_f23f5420__dev"
+        "IdentityPoolName": "chaos_identitypool_f23f5420__dev",
+        "UserPoolId": "us-east-1_itzOjA95G",
+        "AppClientIDWeb": "506kt4j7lrlp4u12bfiejtn0u9",
+        "AppClientID": "5qs0colsbhl265gp8dkdipsj16",
+        "FacebookWebClient": "910887943064469",
+        "UserPoolName": "ChaosFB"
       },
-      "lastPushDirHash": "dDi9GofBlL883/+R1CNBFnXqGo0="
+      "lastPushDirHash": "u9Fbk7swl8fBElrfO/l9paet3BE=",
+      "customAuth": false,
+      "dependsOn": []
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitobf926ab8",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2021-04-01T11:24:14.395Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/auth/template.json",
+        "logicalId": "authuserPoolGroups"
+      },
+      "output": {
+        "usersGroupRole": "arn:aws:iam::210494068639:role/us-east-1_itzOjA95G-usersGroupRole"
+      },
+      "lastPushDirHash": "kUrhyiv9yQc9PStkY6eSvizFmK4="
     }
   },
   "notifications": {
@@ -51,6 +83,74 @@
         }
       },
       "lastPushTimeStamp": "2021-04-01T10:11:00.082Z"
+    }
+  },
+  "function": {
+    "AdminQueries253f54c3": {
+      "service": "Lambda",
+      "providerPlugin": "awscloudformation",
+      "build": true,
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitobf926ab8",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "lastBuildTimeStamp": "2021-04-01T11:20:01.255Z",
+      "lastPackageTimeStamp": "2021-04-01T11:20:09.607Z",
+      "distZipFilename": "AdminQueries253f54c3-5a512f52564f3557596d-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-chaos-dev-153938-deployment",
+        "s3Key": "amplify-builds/AdminQueries253f54c3-5a512f52564f3557596d-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/function/AdminQueries253f54c3-cloudformation-template.json",
+        "logicalId": "functionAdminQueries253f54c3"
+      },
+      "lastPushTimeStamp": "2021-04-01T11:24:14.395Z",
+      "output": {
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:210494068639:function:AdminQueries253f54c3-dev",
+        "Name": "AdminQueries253f54c3-dev",
+        "LambdaExecutionRole": "AdminQueries253f54c3LambdaRole-dev"
+      },
+      "lastPushDirHash": "u8I03gkPzQl+wW3imqDcviHuWh4="
+    }
+  },
+  "api": {
+    "AdminQueries": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "cognitobf926ab8",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "AdminQueries253f54c3",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-chaos-dev-153938-deployment/amplify-cfn-templates/api/admin-queries-cloudformation-template.json",
+        "logicalId": "apiAdminQueries"
+      },
+      "lastPushTimeStamp": "2021-04-01T11:24:14.395Z",
+      "output": {
+        "ApiName": "AdminQueries",
+        "RootUrl": "https://f5jm870i7d.execute-api.us-east-1.amazonaws.com/dev"
+      },
+      "lastPushDirHash": "pCU+o2kt0phCvOiiUq6GcQJeSik="
     }
   }
 }
