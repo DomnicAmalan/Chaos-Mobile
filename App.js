@@ -1,3 +1,4 @@
+import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { Platform, SafeAreaView, View } from "react-native";
@@ -49,6 +50,7 @@ const App = () => {
     });
     // tets()
   }, []);
+  
 
   const tets = async() => {
     const sub = await Auth.currentUserInfo();
@@ -59,11 +61,14 @@ const App = () => {
     return <View></View>;
   }
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      {Platform.OS === "ios" && <StatusBar style="dark" />}
-      {/* <TextInput placeholder="test" /> */}
-      <SplashScreen />
-    </SafeAreaView>
+    <Paperprovider theme={theme}>
+      <SafeAreaView style={{ flex: 1 }}>
+        {Platform.OS === "ios" && <StatusBar style="dark" />}
+        <NavigationContainer linking={linking}>
+          <AuthStack />
+        </NavigationContainer>
+      </SafeAreaView>
+    </Paperprovider>
   );
 };
 
