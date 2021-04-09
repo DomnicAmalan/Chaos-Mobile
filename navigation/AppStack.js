@@ -5,8 +5,8 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from 'config/colors.json';
 import {Text} from 'react-native';
-import PreferencesScreen from 'views/PreferencesScreen'
-
+// import PreferencesScreen from 'views/PreferencesScreen'
+import PreferenceStack from 'navigation/PreferencesStack';
 const Tab = createMaterialTopTabNavigator();
 
 function MyTabs() {
@@ -57,11 +57,11 @@ const AppStack = () => {
   const check = false
   return (
     <Stack.Navigator
-      initialRouteName={check ? "Tabs": "Preferences"}
+      initialRouteName={check ? "Tabs": "PreferencesStack"}
       screenOptions={{ headerShown: false, }}
     >
       <Stack.Screen name="Tabs" component={MyTabs} />
-      <Stack.Screen name="Preferences" component={PreferencesScreen} />
+      <Stack.Screen name="PreferencesStack" component={PreferenceStack} />
     </Stack.Navigator>
   )
 };

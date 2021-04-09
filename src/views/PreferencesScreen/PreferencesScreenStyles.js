@@ -38,7 +38,7 @@ export default StyleSheet.create({
   },
   title: {
     ...fonts.title1,
-    color: "#000",
+    color: colors.primary,
     marginHorizontal: scale(30),
     textAlign: 'center',
     marginVertical: scale(10)
@@ -63,6 +63,9 @@ export default StyleSheet.create({
   },
   checkicon: {
     color: colors.primary,
-    fontSize: scale(20)
+    fontSize: scale(20),
+  },
+  selectedItems: {
+    color: colors.primary
   }
 })

@@ -1,19 +1,30 @@
-import React, { useEffect, useState, createContext } from 'react';
+import React, { useEffect, useState, createContext, useContext } from 'react';
 import Favourites from './FavouriteSports';
 import { percentager } from 'utils/math'
-export const PreferencePageContext = createContext();
 import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './indexstyles'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import colors from 'config/colors.json'
 import { scale } from 'config/scale';
+import * as yup from 'yup';
+import PreferenceStack from 'navigation/PreferencesStack';
+
+export const PreferencePageContext = createContext();
+
+let schema = yup.object().shape({
+  favouritesports: yup.array().min(3).required()
+});
+
 
 const PreferencesScreen = () => {
-  const [selectedSports, setSelectedSports] = useState([])
+  const { selectedSports } = useContext(PreferencePageContext)
+  const valid = () => schema.validate({ favouriteSports: selectedSports })
+  .then(resp => console.log(resp))
+  .catch(err => console.log(err));
+  valid()
   return (
-    <PreferencePageContext.Provider value={{ step1: {selectedSports, setSelectedSports} }}>
-      <Favourites />
+    <>
       <View style={styles.footerContainer}>
         <TouchableOpacity>
           <Text style={styles.skip}>Skip</Text>
@@ -38,7 +49,7 @@ const PreferencesScreen = () => {
           <Icon name={"arrow-right"} style={styles.nexticon}  />
         </TouchableOpacity>
       </View>
-    </PreferencePageContext.Provider>
+    </>
   )
 }
 

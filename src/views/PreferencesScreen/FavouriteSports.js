@@ -9,9 +9,15 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { SvgCssUri } from 'react-native-svg';
 var _ = require('lodash');
 import useDebounce from 'hooks/debounce';
-import {PreferencePageContext} from './index'
+import {PreferencePageContext} from './index';
+import styles2 from './indexstyles'
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import { percentager } from 'utils/math'
+import colors from 'config/colors.json'
+import { scale } from 'config/scale';
 
-const Favourites = () => {
+
+const Favourites = ({ navigation }) => {
   const [images, setImages] = useState([])
   const [showDetailsModal, setDetails] = useState(false);
   const [currentDetailsID, setCurrentDetailID] = useState(null)
@@ -43,11 +49,9 @@ const Favourites = () => {
       const data = await GetSportsList(query=searchQuery, null, null, parents_only=false)
       console.log(data.length)
       setImages(data)
-      console.log("uiuiui")
     }
     initialData()
   }, [debouncedSearchTerm])
-  console.log(selectedSports)
   return (
     <>
       <Text style={styles.title}>
@@ -64,6 +68,7 @@ const Favourites = () => {
         itemDimension={130}
         sections={[{title: "Favourite Sport", data: images}]}
         style={styles.gridView}
+        initialNumToRender={7}
         renderItem={data => (
           <TouchableOpacity 
             onPress={() => addOrRemove(data.item.id)} 
@@ -71,9 +76,9 @@ const Favourites = () => {
             style={[styles.itemContainer, {backgroundColor: "#fff"}]}
           >
             <View style={{flex:1, justifyContent:"space-between", flexDirection: "row"}}>
-              <Text style={styles.itemName}>{data.item.attributes.name}</Text>
+              <Text style={[styles.itemName, selectedSports.includes(data.item.id) ? styles.selectedItems: null ]}>{data.item.attributes.name}</Text>
               {selectedSports.includes(data.item.id) ? 
-                  <Icon name={'check-circle'} style={styles.checkicon} />: null
+                <Icon name={'check-circle'} style={styles.checkicon} />: null
               }
             </View>
             <View style={{flex:1, flexDirection: "row", justifyContent: "flex-end"}}>
@@ -81,9 +86,9 @@ const Favourites = () => {
                 width="50"
                 height="50"
                 uri={data.item.attributes.icon}
+                stroke={selectedSports.includes(data.item.id) ? colors.primary: colors.black1}
               />
             </View>
-            
           </TouchableOpacity>
         )}
       />
@@ -97,6 +102,7 @@ const Favourites = () => {
         swipeDirection="down"
         style={{margin:0, height: "50%"}}
         hideModalContentWhileAnimating={true}
+        onRequestClose={() => closeDetails()}
       >
         <View style={styles.detailsModal}>
           <View style={{alignItems: "center"}}>
@@ -117,7 +123,7 @@ const Favourites = () => {
                         width="40"
                         height="40"
                         uri={currentDetailsID.attributes.icon}
-                        
+                        stroke={colors.primary}
                       />
                     </View>
                     
@@ -130,6 +136,30 @@ const Favourites = () => {
           </ScrollView>
         </View>
       </Modal>
+      <View style={styles2.footerContainer}>
+        <TouchableOpacity>
+          <Text style={styles2.skip}>Skip</Text>
+        </TouchableOpacity>
+        <AnimatedCircularProgress
+            size={scale(40)}
+            width={4}
+            fill={percentager(selectedSports.length, 3)}
+            tintColor={colors.primary}
+            backgroundColor={colors.black1}
+            lineCap="butt"
+        >
+          {
+            (fill) => (
+              <Text style={styles2.progress}>
+                {`${selectedSports.length}/3`}
+              </Text>
+            )
+          }
+        </AnimatedCircularProgress>
+        <TouchableOpacity onPress={() => navigation.navigate("Permissions")} style={[styles2.nexticonContainer, {backgroundColor: selectedSports.length >=3  ? colors.primary: null}]} >
+          <Icon name={"arrow-right"} style={styles2.nexticon}  />
+        </TouchableOpacity>
+      </View>
     </>
   )
 }
