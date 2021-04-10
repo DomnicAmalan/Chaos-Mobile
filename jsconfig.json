@@ -12,6 +12,7 @@
       "config": ["./src/config"],
       "hooks": ["./src/hooks"],
       "api": ["./src/apis"],
+      "navigation": ["navigation"],
     }
   },
   "exclude": ["dist", "docs"]

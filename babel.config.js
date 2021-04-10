@@ -15,7 +15,8 @@ module.exports = function(api) {
             utils: './utils',
             config: './src/config',
             hooks: './src/hooks',
-            api: './src/apis'
+            api: './src/apis',
+            navigation: './navigation'
           }
         }
       ]

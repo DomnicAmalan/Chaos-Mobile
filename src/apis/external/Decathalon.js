@@ -28,18 +28,19 @@ SportsApiInstance.interceptors.response.use((response) => {
  * https://developers.decathlon.com/sports/
 */
 
-export const GetSportsList = async(tag='', has_icon=false, parents_only=false, has_decathalon_id=false,) => {
+export const GetSportsList = async(query="", tag='', has_icon=false, parents_only=false, has_decathalon_id=false,) => {
   try {
     const resp = await SportsApiInstance.get('/sports', {
       params: {
         has_icon,
         parents_only,
         has_decathalon_id,
-        tag
+        tag,
+        q:query
       }
     });
     console.log(resp.config.params)
-    return resp
+    return resp.data.data
   } 
   catch(error) {
    return null

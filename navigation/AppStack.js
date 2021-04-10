@@ -3,9 +3,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MainScreen from 'views/MainScreen';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Icon2 from 'react-native-vector-icons/FontAwesome5';
-import colors from 'config/colors.json'
-
+import colors from 'config/colors.json';
+import {Text} from 'react-native';
+// import PreferencesScreen from 'views/PreferencesScreen'
+import PreferenceStack from 'navigation/PreferencesStack';
 const Tab = createMaterialTopTabNavigator();
 
 function MyTabs() {
@@ -52,12 +53,15 @@ function MyTabs() {
 const Stack = createStackNavigator();
 
 const AppStack = () => {
+  // TODO
+  const check = false
   return (
     <Stack.Navigator
-      initialRouteName="Tabs"
+      initialRouteName={check ? "Tabs": "PreferencesStack"}
       screenOptions={{ headerShown: false, }}
     >
       <Stack.Screen name="Tabs" component={MyTabs} />
+      <Stack.Screen name="PreferencesStack" component={PreferenceStack} />
     </Stack.Navigator>
   )
 };
