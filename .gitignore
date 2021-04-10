@@ -84,3 +84,4 @@ amplifytools.xcconfig
 .secret-*
 ios/Podfile.lock
 yarn.lock
+*.lock
