@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Platform, ScrollView} from 'react-native';
+import {View, Text, Platform, StyleSheet, Button} from 'react-native';
 import styles from './PermissionsStyle'
 import * as Location from 'expo-location';
-import {  } from 'react-native-gesture-handler';
+import MapView, { Marker } from 'react-native-maps';
+import LocationIllustraor from 'assets/svgs/location_get.svg'
 
 const Permissions = () => {
   const [location, setLocation] = useState(null);
@@ -17,8 +18,8 @@ const Permissions = () => {
         return;
       }
 
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
+      let resp = await Location.getCurrentPositionAsync({});
+      // setLocation(resp.coords);
     })();
   }, []);
 
@@ -30,14 +31,45 @@ const Permissions = () => {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.screen}>
+    <>
       <Text style={styles.title}>
         App Permissions
       </Text>
-      <View  >
-        <Text>{text}</Text>
-      </View>
-    </ScrollView>
+      {location && (
+        <MapView
+          style={{ ...StyleSheet.absoluteFillObject }}
+          initialRegion={{
+            latitude: location.latitude,
+            longitude: location.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        >
+          <Marker
+            coordinate={{ 
+              latitude: location.latitude,
+              longitude: location.longitude,
+            }}
+            title='Flatiron School Atlanta'
+            description='This is where the magic happens!'
+          >
+          </Marker >
+        </MapView>
+        )
+      }
+      {
+        !location && (
+          <>
+            <LocationIllustraor width={"100%"} height={"80%"} />
+            <Button style={{position: 'absolute'}} title={"Enable Location"}>
+              Enable Location
+            </Button>
+          </>
+        )
+      }
+      
+      
+    </>
   )
 }
 

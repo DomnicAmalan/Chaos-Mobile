@@ -1,14 +1,5 @@
 const { getDefaultConfig } = require('metro-config');
 
-module.exports = {
-  transformer: {
-    assetPlugins: ['expo-asset/tools/hashAssetFiles'],
-  },
-  resolver: {
-    blacklistRE: /#current-cloud-backend\/.*/
-  },
-};
-
 module.exports = (async () => {
   const {
     resolver: { sourceExts, assetExts }
