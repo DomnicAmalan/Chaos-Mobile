@@ -57,10 +57,10 @@ const AppStack = () => {
   const check = false
   return (
     <Stack.Navigator
-      initialRouteName={check ? "Tabs": "PreferencesStack"}
+      initialRouteName={check ? "App": "PreferencesStack"}
       screenOptions={{ headerShown: false, }}
     >
-      <Stack.Screen name="Tabs" component={MyTabs} />
+      <Stack.Screen name="App" component={MyTabs} />
       <Stack.Screen name="PreferencesStack" component={PreferenceStack} />
     </Stack.Navigator>
   )

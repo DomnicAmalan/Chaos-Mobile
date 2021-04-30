@@ -1,16 +1,25 @@
 import Realm from "realm";
 
-class UserSchema extends Realm.Object {}
+class Permissions extends Realm.Object {}
 
-// TODO - Sample
-UserSchema.schema = {
+Permissions.schema = {
   name: 'Users',
   properties: {
     name: 'string',
-    cognitoid: 'string'
   }
 }
 
-let realm = new Realm({schema: [UserSchema], schemaVersion: 1});
+let realm = new Realm({schema: [Permissions], schemaVersion: 1});
+
+let task1, task2;
+realm.write(() => {
+  task1 = realm.create("Users", {
+    name: "go grocery shopping",
+  });
+  task2 = realm.create("Users", {
+    name: "go exercise",
+  });
+  console.log(`created two tasks: ${task1.name} & ${task2.name}`);
+});
 
 export default realm;

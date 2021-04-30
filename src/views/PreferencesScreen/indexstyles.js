@@ -20,8 +20,8 @@ export default StyleSheet.create({
     alignItems: "center", 
     justifyContent:"space-around",  
     flexDirection: "row",
-    paddingVertical: 10
-
+    paddingVertical: 10,
+    backgroundColor: colors.white
   },
   nexticon: {
     fontSize: scale(15),
