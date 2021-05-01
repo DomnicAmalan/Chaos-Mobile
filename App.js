@@ -8,7 +8,7 @@ import { useTheme } from "react-native-paper";
 import { NavigationContainer } from '@react-navigation/native'; 
 import { linking } from 'utils/linking';
 import AppStack from 'navigation/AppStack';
-import Realm from 'realm'
+import Realm from './src/Realm'
 
 export default function App() {
   const [isFontLoaded, setFontLoaded] = useState(false);
@@ -17,9 +17,8 @@ export default function App() {
     _loadResourcesAsync().then(() => {
       setFontLoaded(true);
     });
-    const tasks = Realm.objects("Users");
   }, []);
-  
+  console.log(Realm)
   if (!isFontLoaded) {
     return <View></View>;
   }

@@ -47,11 +47,11 @@ const Favourites = ({ navigation }) => {
   useEffect(() => {
     const initialData = async() => {
       const data = await GetSportsList(query=searchQuery, null, null, parents_only=false)
-      console.log(data.length)
       setImages(data)
     }
     initialData()
   }, [debouncedSearchTerm])
+  
   return (
     <>
       <Text style={styles.title}>
