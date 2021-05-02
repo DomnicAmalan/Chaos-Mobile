@@ -2,8 +2,10 @@ export const USER_FAVOURITES = "USER_FAVOURITES";
 export const USER_FAVOURITES_SCHEMA = {
   name: USER_FAVOURITES,
   properties: {
-    favouriteSports: {type: 'int', indexed: true}
-  }
+    favouriteSports: {type: 'string', indexed: true},
+    decathalonId: {type: 'int', indexed: true }
+  },
+  primaryKey: "decathalonId",
 }
 
 export const USER_PERMISSIONS = "USER_PERMISSIONS";

@@ -15,7 +15,7 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { percentager } from 'utils/math'
 import colors from 'config/colors.json'
 import { scale } from 'config/scale';
-
+import { addFavourites, deleteFavourites, getAllFavourites } from '../../Realm/Query'
 
 const Favourites = ({ navigation }) => {
   const [images, setImages] = useState([])
@@ -24,24 +24,31 @@ const Favourites = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const {step1} = useContext(PreferencePageContext)
   const {selectedSports, setSelectedSports} = step1;
+  
+  useEffect(() => {
+    setSelectedSports(getAllFavourites())
+  }, []);
 
   const showDetails = (data) => {
     setCurrentDetailID(data)
     setDetails(true)
   }
   const debouncedSearchTerm = useDebounce(searchQuery, 300);
+
   const closeDetails = () => {
     setDetails(false)
     setCurrentDetailID(null)
   }
 
   const addOrRemove = (sport) => {
-    if(selectedSports.includes(sport)){
-      setSelectedSports([...selectedSports.slice(0, selectedSports.indexOf(sport))])
+    const { id, attributes } = sport
+    if(selectedSports.includes(id)){
+      deleteFavourites(id)
     }
     else{
-      setSelectedSports([...selectedSports, sport])
+      addFavourites(attributes.name, id)
     }
+    setSelectedSports(getAllFavourites())
   }
 
   useEffect(() => {
@@ -71,7 +78,7 @@ const Favourites = ({ navigation }) => {
         initialNumToRender={7}
         renderItem={data => (
           <TouchableOpacity 
-            onPress={() => addOrRemove(data.item.id)} 
+            onPress={() => addOrRemove(data.item)} 
             onLongPress={() => showDetails(data.item)} 
             style={[styles.itemContainer, {backgroundColor: "#fff"}]}
           >
